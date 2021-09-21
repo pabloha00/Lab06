@@ -1,3 +1,5 @@
+/***************************Definición de Variables*************************/
+
 #define A1 PA_7 //Camiamos de nombre los pines
 #define A2 PA_6
 #define A3 PA_5
@@ -22,9 +24,13 @@ int EN; //Enable para comenzar el juego
 int ZZ; //Contador de jugadores
 int YY;
 
+/***************************Prototipo de Funciones*************************/
+
 void CONT1(void); //Función de ambos jugadores
 void CONT2(void);
 void SEMAFORO(void);  //Función del semáforo
+
+/***************************Setup*************************/
 
 void setup() {
   pinMode(PUSH1, INPUT_PULLUP); //Pullups a los push
@@ -58,6 +64,7 @@ void setup() {
   YY=0;
   ZZ=0;
 }
+  /***************************Main Loop*************************/
 
 void loop() {
   if (EN==0){ //Si el enable no ha sido activado comenzará la función del semáforo
@@ -68,6 +75,8 @@ void loop() {
   CONT2();    
   }
 }
+
+/***************************Funciones*************************/
 
 void CONT1(void){
   if (digitalRead(PUSH1)==LOW){ //Antirrebote del jugador 1
